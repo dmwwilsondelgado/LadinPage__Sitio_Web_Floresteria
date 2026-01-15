@@ -47,6 +47,19 @@ class UsuariosController {
       res.status(500).json({error:error.message});
     }
   }
-}
+  static async patchUser(req, res) {
+    try {
+      const { id_usuario } = req.params;
+      const campos = req.body;
 
+      await UsuarioModel.patchUsuarios(id_usuario, campos);
+
+      res.status(200).json({
+        message: "Usuario actualizado parcialmente"
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+}
 export default UsuariosController;

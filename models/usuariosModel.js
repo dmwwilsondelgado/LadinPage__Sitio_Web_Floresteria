@@ -39,6 +39,29 @@ class Usuarios{
       throw new Error(error.message,"Error al actualizar el usuario");
     }
    }
+   async patchUsuarios(idUsuario, campos) {
+    try {
+      const keys = Object.keys(campos);
+
+      if (keys.length === 0) {
+        throw new Error("No hay campos para actualizar");
+      }
+
+      const setClause = keys.map(key => `${key} = ?`).join(", ");
+      const values = [...Object.values(campos), idUsuario];
+      const [result] = await connection.query(
+      `UPDATE usuarios SET ${setClause} WHERE id_usuario = ?`,
+      values
+      );
+
+      if (result.affectedRows === 0) {
+        throw new Error("Usuario no encontrado");
+      }
+      return true;
+    }catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default new Usuarios();
