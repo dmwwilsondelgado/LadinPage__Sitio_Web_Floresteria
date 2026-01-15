@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
+import usuariosRoutes from "./routes/usuariosRoute.js"
 
-// rutas
 
 //creamos inicio 
 const app = express();
@@ -9,12 +9,14 @@ const app = express();
 // middlewares
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/usuarios", usuariosRoutes);
 
 // rutas
 // app.use("/ciudades", ciudadesRoutes);
 // app.use("/generos", generoRoutes);
 // app.use("/lenguajes", lenguajesRoutes);
 // app.use("/usuarios", usuariosRoutes);
+
 
 // servidor
 app.listen(3000, () => {

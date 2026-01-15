@@ -1,5 +1,5 @@
 //imprtamos la conenction al modelo
-import conection from "../utils/db.js";
+import connection from "../utils/db.js";
 
 // creamos una clase que sea usable para crear el usuario
 class Usuarios{
@@ -9,15 +9,15 @@ class Usuarios{
    */
   async getAllUsuarios() {
     try {
-        const[rows] = await conection.query("Select * from usuarios")
-        return rows;
+      const [rows] = await connection.query("SELECT * FROM usuarios");
+      return rows;
     } catch (error) {
-        throw new Error("Error: al obtener los usuarios");
+       throw new Error("Error: al obtener los usuarios");
     }
   }
   async createUsuarios(nombre,email,password,telefono){
     try {
-        const[result]= await connection.query("insert into usuarios(nombre,email,password,telefono)values (?,?,?,?);"
+        const[result]= await connection.query("insert into usuarios(nombre,email,password,telefono)values (?,?,?,?),"
           [nombre,email,password,telefono]
         )
         return result.insertId;
@@ -28,4 +28,4 @@ class Usuarios{
   }
 }
 
-export default Usuarios();
+export default Usuarios;

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dmwwilsondelgado/LadinPage__Sitio_Web_Floresteria#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mysql2": "^3.16.0"
