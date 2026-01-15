@@ -15,15 +15,15 @@ class Usuarios{
        throw new Error("Error: al obtener los usuarios");
     }
   }
-  async createUsuarios(nombre,email,password,telefono){
+  async postUsuarios(nombre,email,password,telefono){
     try {
-        const[result]= await connection.query("insert into usuarios(nombre,email,password,telefono)values (?,?,?,?),"
+        const[result]= await connection.query("INSERT INTO usuarios(nombre,email,password,telefono)VALUES (?,?,?,?)",
           [nombre,email,password,telefono]
         )
         return result.insertId;
       }
       catch (error) {
-        throw new Error("Error: al Crear el Usuario");
+        throw new Error(error.message);
     }
   }
 }

@@ -19,7 +19,7 @@ class UsuariosController {
       const passwordHash = await bcrypt.hash(password, 10);
 
       // crear usuario
-      const idUsuario = await UsuarioModel.create(
+      const idUsuario = await UsuarioModel.postUsuarios(
         nombre,
         email,
         passwordHash,
