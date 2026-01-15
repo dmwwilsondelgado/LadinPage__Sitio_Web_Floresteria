@@ -38,8 +38,8 @@ class Usuarios{
     } catch (error) {
       throw new Error(error.message,"Error al actualizar el usuario");
     }
-   }
-   async patchUsuarios(idUsuario, campos) {
+  }
+  async patchUsuarios(idUsuario, campos) {
     try {
       const keys = Object.keys(campos);
 
@@ -62,6 +62,20 @@ class Usuarios{
       throw error;
     }
   }
-}
+  async deleteUsuarios(idUsuario) {
+    try {
+      const [result] = await connection.query(
+        "UPDATE usuarios SET estado = 0 WHERE id_usuario = ?",
+        [idUsuario]
+      );
+      if (result.affectedRows === 0) {
+        throw new Error("Usuario no encontrado");
+      }
+      return true;
+    } catch (error) {
+      throw error;
+    }
+  }
 
+}
 export default new Usuarios();

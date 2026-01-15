@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import UsuarioModel from "../models/usuariosModel.js";
 import UsuarioRolModel from "../models/usuarioRolModel.js";
+import { json } from "express";
 
 class UsuariosController {
   static async getUser(req, res) {
@@ -56,6 +57,17 @@ class UsuariosController {
 
       res.status(200).json({
         message: "Usuario actualizado parcialmente"
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+  static async deleteUser(req,res){
+    try {
+      const { id_usuario } = req.params;
+      await UsuarioModel.deleteUsuarios(id_usuario);
+      res.status(200).json({
+        message: "Usuario desactivado correctamente"
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
