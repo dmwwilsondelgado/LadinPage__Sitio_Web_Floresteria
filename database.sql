@@ -232,3 +232,5 @@ select 1,"Wilson","wilsondelgadomoreno" from usuarios;
 -- agregamos que tipo de usuario va a hacer 
 insert into usuario_rol(id_usuario,id_rol)values(1,1); -- agregamos al admin 
 describe usuarios;
+describe usuario_rol;
+select*from roles;

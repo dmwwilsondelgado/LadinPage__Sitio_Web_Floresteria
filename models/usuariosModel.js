@@ -26,6 +26,19 @@ class Usuarios{
         throw new Error(error.message);
     }
   }
+  async putUsuarios(idUsuario,nombre,email,telefono){
+    try {
+      const[result]= await connection.query("UPDATE usuarios SET nombre=?, email=?, telefono=? WHERE id_usuario=?",
+        [nombre,email,telefono,idUsuario]
+      );
+      if (result.affectedRows == 0) {
+        throw new Error("No se encontró el usuario a actualizar");
+      }
+      return true;
+    } catch (error) {
+      throw new Error(error.message,"Error al actualizar el usuario");
+    }
+   }
 }
 
 export default new Usuarios();

@@ -37,6 +37,16 @@ class UsuariosController {
       res.status(500).json({ error: error.message });
     }
   }
+  static async updateUser (req,res){
+    try {
+      const { id_usuario } = req.params;
+      const {nombre,email,telefono}= req.body;
+      await UsuarioModel.putUsuarios(id_usuario,nombre,email,telefono);
+      res.status(200).json({message:"Usuario actualizado correctamente"});
+    } catch (error) {
+      res.status(500).json({error:error.message});
+    }
+  }
 }
 
 export default UsuariosController;
