@@ -28,4 +28,4 @@ class Usuarios{
   }
 }
 
-export default Usuarios;
+export default new Usuarios();
