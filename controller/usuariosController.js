@@ -1,3 +1,34 @@
-import bycrypt from "bcryptjs"
+import bcrypt from "bcryptjs";
 import UsuarioModel from "../models/usuariosModel.js";
-import usuarioRolModel from"../models/usuarioRolModel.js"
+import UsuarioRolModel from "../models/usuarioRolModel.js";
+
+class UsuariosController {
+  static async create(req, res) {
+    try {
+      const { nombre, email, password, telefono } = req.body;
+
+      // hash del password
+      const passwordHash = await bcrypt.hash(password, 10);
+
+      // crear usuario
+      const idUsuario = await UsuarioModel.create(
+        nombre,
+        email,
+        passwordHash,
+        telefono
+      );
+
+      // asignar rol CLIENTE (2)
+      await UsuarioRolModel.asignarRol(idUsuario, 2);
+
+      res.status(201).json({
+        message: "Usuario creado como CLIENTE correctamente"
+      });
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+}
+
+export default UsuariosController;
