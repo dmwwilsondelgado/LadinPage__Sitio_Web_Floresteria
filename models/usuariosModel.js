@@ -7,7 +7,7 @@ class Usuarios{
    * Metodo para obtener los registros de la base de datos
    * @returns  {Array} listado de los usuarios en un arreglo
    */
-  async getAll() {
+  async getAllUsuarios() {
     try {
         const[rows] = await conection.query("Select * from usuarios")
         return rows;
@@ -15,12 +15,15 @@ class Usuarios{
         throw new Error("Error: al obtener los usuarios");
     }
   }
-  async create(nombre,apellido,telefono,documento,usuario,contraseña,id_ciudad,id_genero){
+  async createUsuarios(nombre,email,password,telefono){
     try {
-        const[rows]= await conection.query("....")
+        const[result]= await connection.query("insert into usuarios(nombre,email,password,telefono)values (?,?,?,?);"
+          [nombre,email,password,telefono]
+        )
+        return result.insertId;
       }
       catch (error) {
-        
+        throw new Error("Error: al Crear el Usuario");
     }
   }
 }
