@@ -3,10 +3,10 @@ import dotenv from "dotenv"
 
 
 dotenv.config();
-const conection = await mysql.createConnection({
+const connection = await mysql.createConnection({
     host:"localhost",
     user:"wilsondelgado",
     password:"1102717619",
     database:"bb_cacao_chucureño"
 })
-export default conection;
+export default connection;
