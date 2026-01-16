@@ -21,5 +21,14 @@ class categoriasController{
             res.status(500).json({error: error.message});
         }
     }
-    
+    static async updateCategorias (req,res){
+        try {
+            const {id}= req.params;
+            const {nombre,descripcion}=req.body
+            await categoriasModel.putCategorias(id,nombre,descripcion);
+            res.status(200).json({message:"Categoria actualizada con exito"});  
+        } catch (error) {
+            res.status(500).json({error: error.message});
+        }
+    }
 }
