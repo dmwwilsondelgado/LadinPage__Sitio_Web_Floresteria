@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos_login.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="contenedor">
+    <div class="login">
+      <div class="subtitle__content">
+        <h2 class="subtitle__text">Usuarios</h2>
+      </div>
+      <form class="formulario">
+        <h2 class="titulo">Inicia Sesion</h2>
+        <input type="text" id="usuario" class="formulario__input" placeholder="Usuario" required>
+        <input type="password" id="contraseña" class="formulario__input" placeholder="Contraseña" required>
+        <select class="formulario__input" id="rol" name="rol">
+          <option value="cliente">Cliente</option>
+          <option value="admin">Admin</option>
+        </select>
+        <!-- <input type="checkbox" id="politicas" class="formulario__input"> -->
+        <div class="formulario__boton-container">
+          <button href="" class="formulario__botones">Ingresar</button>
+          <a href="send_email.html" class="formulario__enlace">¿Olvidó su contraseña?</a>
+        </div>
+        <div class="centrar-vertical">
+          <a href="register.html" class="titulo__registro">Registrarme en el sistema</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
