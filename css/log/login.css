@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+:root {
+  /* sombras  */
+  --black_color: #000000;
+  --dark-grey-color: #454343;
+  --grey-color: #cbcbcb;
+  /* colores vivos */
+  --red-color: #fa0b0b;
+  --white-color: #fff;
+  --rosa-peonia: #e85a9c;
+  /* colores fondos e inputs */
+  --verde-salvia: #a8c9a1;
+  --crema-marfil: #f9f5ef;
+  --rosa-palido: #f4c6d7;
+  --verde-oliva: #c9d9b2;
+  --spacios: #fffcfc;
+  /* colores fuente */
+  --dorado-suave: #d7b377;
+  --fuentes: #a31452;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  background-color: var(--crema-marfil);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Indie Flower", cursive;
+  font-weight: 600;
+  font-style: normal;
+  animation: animationImagenes 29s infinite;
+  animation-timing-function: ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes animationImagenes {
+  0% {
+    background-image: url(../../img/flores_primavera_1.jpg);
+  }
+  30% {
+    background-image: url(../../img/flores_primavera_1.jpg);
+  }
+  50% {
+    background-image: url(../../img/flores_primavera_6.jpg);
+  }
+  75% {
+    background-image: url(../../img/Free/mujer-decorando-su-casa-con-orquideas.jpg);
+  }
+  100% {
+    background-image: url(../../img/Free/mujer-decorando-su-casa-con-orquideas.jpg);
+  }
+}
+/* contenedor login  */
+.login {
+  background-color: var(--white-color);
+  border: 2px solid var(--verde-oliva);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.login:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+/* Subtítulo superior */
+.subtitle__content {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle__text {
+  color: var(--dorado-suave);
+  font-size: 1.7rem;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+}
+
+/* Título principal */
+.titulo {
+  color: var(--rosa-peonia);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs del formulario */
+.formulario__input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+/* Contenedor de botón + enlace */
+.formulario__boton-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+/* Botón de ingresar */
+.formulario__botones {
+  width: 100%;
+  background-color: var(--rosa-peonia);
+  color: var(--white-color);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario__boton:hover {
+  background-color: var(--fuentes);
+}
+
+/* Enlace de recuperar contraseña */
+.formulario__enlace {
+  color: var(--verde-salvia);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.formulario__enlace:hover {
+  text-decoration: underline;
+}
+
+/* Enlace de registro */
+.centrar-vertical {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.titulo__registro {
+  color: var(--gris-oscuro);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.titulo__registro:hover {
+  color: var(--rosa-peonia);
+}
