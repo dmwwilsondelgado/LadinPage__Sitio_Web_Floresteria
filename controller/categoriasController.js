@@ -41,3 +41,4 @@ class categoriasController{
         }
     }
 }
+export default categoriasController;
