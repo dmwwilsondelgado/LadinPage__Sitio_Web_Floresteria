@@ -1,8 +1,3 @@
-create user "wilsondelgado"@"localhost" identified by "1102717619";
-create database bb_cacao_chucureño;
-grant all privileges on bb_cacao_chucureño.* to "wilsondelgado"@"localhost";
-flush privileges;
-show databases;
 use bb_cacao_chucureño;
 -- creacion de tablas
 create table roles(
@@ -109,11 +104,4 @@ CREATE TABLE pagos (
   fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
 );
-
--- insertacion de datos
 insert into roles(id_rol,nombre_rol)values(1,"admin"),(2,"cliente");
-describe usuarios;
-select * from usuarios;
-select * from roles;
-select 1,"Wilson","wilsondelgadomoreno" from usuarios;
-select * from usuarios;
