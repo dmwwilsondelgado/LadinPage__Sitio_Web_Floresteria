@@ -19,16 +19,19 @@ class catgoriaModel{
             throw new Error("Error al insertar la categoria: " + error.message);
         }
     }
-    async putCategorias(id,nombre,descripcion){
+    async putCategorias(id, nombre, descripcion) {
         try {
-            const[result]= await connection.query("update categorias  set nombre = ? descripcion = ? where id = ?",
-                [nombre,descripcion,id]
+            const [result] = await connection.query(
+            "UPDATE categorias SET nombre = ?, descripcion = ? WHERE id_categoria = ?",
+            [nombre, descripcion, id]
             );
-            if (result.affectedRows == 0) {
-                throw new Error("Categoria no encontrada"); 
+            if (result.affectedRows === 0) {
+            throw new Error("Categoria no encontrada");
             }
+
+            return true;
         } catch (error) {
-            throw new Error(message.error);
+            throw new Error("Error al actualizar categoria: " + error.message);
         }
     }
     async deleteCategorias(id){
