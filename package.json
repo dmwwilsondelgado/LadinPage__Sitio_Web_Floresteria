@@ -8,7 +8,7 @@
     "dev": "nodemon app.js"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/dmwwilsondelgado/LadinPage__Sitio_Web_Floresteria.git"
   },
   "keywords": [],

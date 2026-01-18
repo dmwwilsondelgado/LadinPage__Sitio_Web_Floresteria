@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import UsuarioModel from "../models/usuariosModel.js";
 import UsuarioRolModel from "../models/usuarioRolModel.js";
-import { json } from "express";
 
 class UsuariosController {
   static async getUser(req, res) {
