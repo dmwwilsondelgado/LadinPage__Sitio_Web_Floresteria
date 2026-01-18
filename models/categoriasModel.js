@@ -37,7 +37,7 @@ class catgoriaModel{
     async deleteCategorias(id){
         try {
             const [result] = await connection.query
-            ("update categorias set estado = 0 where id = ?",
+            ("delete from categorias where id_categoria = ?",
                 [id]
             );
             if (result.affectedRows == 0) {
