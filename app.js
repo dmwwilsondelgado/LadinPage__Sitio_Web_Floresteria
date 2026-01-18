@@ -10,6 +10,7 @@ const app = express();
 // middlewares
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+// rutas
 app.use("/usuarios", usuariosRoutes);
 app.use("/auth",authRoutes);
 app.use("/categorias",categoriasRoutes);
