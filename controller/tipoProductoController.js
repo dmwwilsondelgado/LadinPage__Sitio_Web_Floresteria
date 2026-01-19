@@ -39,11 +39,10 @@ class TipoProductoController {
   static async update(req, res) {
     try {
       const { id } = req.params;
-      const { id_categoria, nombre, descripcion } = req.body;
+      const {nombre,descripcion } = req.body;
 
       await tipoProductoModel.update(
         id,
-        id_categoria,
         nombre,
         descripcion
       );
