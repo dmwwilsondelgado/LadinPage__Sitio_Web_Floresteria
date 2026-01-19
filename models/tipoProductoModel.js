@@ -9,18 +9,18 @@ class TipoProductoModel {
     return rows;
   }
 
-  async create(id_categoria, nombre, descripcion) {
+  async create(nombre, descripcion) {
     const [result] = await connection.query(
-      "INSERT INTO tipo_producto (id_categoria, nombre, descripcion) VALUES (?, ?, ?)",
-      [id_categoria, nombre, descripcion]
+      "INSERT INTO tipo_producto ( nombre, descripcion) VALUES (?, ?)",
+      [nombre, descripcion]
     );
     return result.insertId;
   }
 
-  async update(id, id_categoria, nombre, descripcion) {
+  async update(id, nombre, descripcion) {
     const [result] = await connection.query(
-      "UPDATE tipo_producto SET id_categoria=?, nombre=?, descripcion=? WHERE id_tipo=?",
-      [id_categoria, nombre, descripcion, id]
+      "UPDATE tipo_producto SET  nombre=?, descripcion=? WHERE id_tipo_producto=?",
+      [nombre, descripcion, id]
     );
 
     if (result.affectedRows === 0) {
@@ -31,7 +31,7 @@ class TipoProductoModel {
 
   async delete(id) {
     const [result] = await connection.query(
-      "UPDATE tipo_producto SET estado = 0 WHERE id_tipo=?",
+      "UPDATE tipo_producto SET estado = 0 WHERE id_tipo_producto=?",
       [id]
     );
 

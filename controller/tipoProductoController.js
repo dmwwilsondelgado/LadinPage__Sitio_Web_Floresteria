@@ -13,16 +13,15 @@ class TipoProductoController {
 
   static async create(req, res) {
     try {
-      const { id_categoria, nombre, descripcion } = req.body;
+      const { nombre, descripcion } = req.body;
 
-      if (!id_categoria || !nombre) {
+      if ( !descripcion|| !nombre) {
         return res.status(400).json({
           error: "id_categoria y nombre son obligatorios"
         });
       }
 
       const id = await tipoProductoModel.create(
-        id_categoria,
         nombre,
         descripcion
       );
