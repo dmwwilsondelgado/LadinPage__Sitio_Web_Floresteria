@@ -4,7 +4,7 @@ class TipoProductoModel {
 
   async getAll() {
     const [rows] = await connection.query(
-      "SELECT * FROM tipo_producto WHERE estado = 1"
+      "SELECT * FROM tipo_producto "
     );
     return rows;
   }
