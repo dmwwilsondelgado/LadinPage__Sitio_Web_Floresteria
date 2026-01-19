@@ -31,7 +31,7 @@ class TipoProductoModel {
 
   async delete(id) {
     const [result] = await connection.query(
-      "delete tipo_producto WHERE id_tipo_producto = ? ",
+      "delete from tipo_producto where  id_tipo_producto = ? ",
       [id]
     );
 
