@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+//importamos el crud
 import usuariosRoutes from "./routes/usuariosRoute.js"
 import authRoutes from "./routes/authRoute.js";
 import categoriasRoutes from "./routes/categoriasRoute.js";
@@ -8,11 +9,9 @@ import productoRoute from "./routes/productoRoute.js";
 
 //creamos inicio 
 const app = express();
-
-// middlewares
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-// rutas
+//inicializamos el app
 app.use("/usuarios", usuariosRoutes);
 app.use("/auth",authRoutes);
 app.use("/categorias",categoriasRoutes);

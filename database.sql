@@ -105,3 +105,5 @@ CREATE TABLE pagos (
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
 );
 insert into roles(id_rol,nombre_rol)values(1,"admin"),(2,"cliente");
+
+
