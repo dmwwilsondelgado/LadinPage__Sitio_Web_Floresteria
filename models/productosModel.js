@@ -21,15 +21,20 @@ class ProductosModel {
     return rows;
   }
 
-  async create(nombre, descripcion, precio, stock, id_categoria, id_tipo_producto) {
+  async create(nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto) {
+    try {
     const [result] = await connection.query(
       `INSERT INTO productos 
-      (nombre, descripcion, precio, stock, id_categoria, id_tipo_producto) 
-      VALUES (?, ?, ?, ?, ?, ?)`,
-      [nombre, descripcion, precio, stock, id_categoria, id_tipo_producto]
+      (nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto) 
+      VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto]
     );
     return result.insertId;
+    } catch (error) {
+      throw error;
+    }
   }
+
 
   async update(id, nombre, descripcion, precio, stock, id_categoria, id_tipo_producto) {
     const [result] = await connection.query(
