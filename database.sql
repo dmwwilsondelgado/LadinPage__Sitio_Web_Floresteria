@@ -105,5 +105,12 @@ CREATE TABLE pagos (
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
 );
 insert into roles(id_rol,nombre_rol)values(1,"admin"),(2,"cliente");
-
-
+-- insertamos producto conforma alas tablas 
+INSERT INTO productos 
+(nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto) 
+VALUES 
+('Chocolate Artesanal', 'Tableta de chocolate 70% cacao', 25000, 120, 1, 1, 3);
+SELECT * FROM tipo_producto;
+SELECT * FROM categorias;
+SELECT * FROM productos;
+describe productos;

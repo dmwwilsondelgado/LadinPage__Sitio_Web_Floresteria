@@ -36,12 +36,12 @@ class ProductosModel {
   }
 
 
-  async update(id, nombre, descripcion, precio, stock, id_categoria, id_tipo_producto) {
+  async update(id, nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto) {
     const [result] = await connection.query(
       `UPDATE productos 
-       SET nombre=?, descripcion=?, precio=?, stock=?, id_categoria=?, id_tipo_producto=?
+       SET nombre=?, descripcion=?, precio=?, stock=?, estado=?, id_categoria=?, id_tipo_producto=?
        WHERE id_producto=?`,
-      [nombre, descripcion, precio, stock, id_categoria, id_tipo_producto, id]
+      [nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto, id]
     );
 
     if (result.affectedRows === 0) {

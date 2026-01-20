@@ -56,6 +56,7 @@ class ProductosController {
         descripcion,
         precio,
         stock,
+        estado,
         id_categoria,
         id_tipo_producto
       } = req.body;
@@ -66,6 +67,7 @@ class ProductosController {
         descripcion,
         precio,
         stock,
+        estado,
         id_categoria,
         id_tipo_producto
       );
