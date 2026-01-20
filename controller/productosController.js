@@ -1,10 +1,10 @@
-import productosModel from "../models/productosModel.js";
+import ProductosModel from "../models/productosModel.js";
 
 class ProductosController {
 
   static async getAll(req, res) {
     try {
-      const data = await productosModel.getAll();
+      const data = await ProductosModel.getAll();
       res.json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -28,7 +28,7 @@ class ProductosController {
         });
       }
 
-      const id = await productosModel.create(
+      const id = await ProductosModel.create(
         nombre,
         descripcion,
         precio,
@@ -59,7 +59,7 @@ class ProductosController {
         id_tipo_producto
       } = req.body;
 
-      await productosModel.update(
+      await ProductosModel.update(
         id,
         nombre,
         descripcion,
@@ -79,7 +79,7 @@ class ProductosController {
   static async delete(req, res) {
     try {
       const { id } = req.params;
-      await productosModel.delete(id);
+      await ProductosModel.delete(id);
       res.json({ message: "Producto eliminado correctamente" });
     } catch (error) {
       res.status(500).json({ error: error.message });
