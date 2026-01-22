@@ -8,13 +8,17 @@ import tipoProductoRoute from "./routes/tipoProductoRoute.js";
 import productoRoute from "./routes/productoRoute.js";
 import imagenesProductoRoute from "./routes/imagenesProductosRoute.js";1
 
-//creamos inicio 
+//aca inicializamos express
 const app = express();
+//usamos el body parser para json
 app.use(bodyParser.json());
-//carpeta publica para correr doom en el navegador
+//carpeta publica para correr doom en el navegador arcghivos estaticos
 app.use(express.static("public"));
+//“Todo lo que esté en la carpeta public/uploads puede ser accedido desde la URL /uploads”.
+app.use("/uploads", express.static("public/uploads"));
+//para poder recibir datos en formato urlencoded desde postman o formularios
 app.use(express.urlencoded({ extended: true }));
-//inicializamos el app
+//inicializamos el app con su respectivo crud
 app.use("/usuarios", usuariosRoutes);
 app.use("/auth",authRoutes);
 app.use("/categorias",categoriasRoutes);
