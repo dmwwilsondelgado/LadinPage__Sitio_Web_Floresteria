@@ -11,6 +11,7 @@ import categoriasRoutes from "./routes/categoriasRoute.js";
 import tipoProductoRoute from "./routes/tipoProductoRoute.js";
 import productoRoute from "./routes/productoRoute.js";
 import imagenesProductoRoute from "./routes/imagenesProductosRoute.js";
+import carritoRoutes from "./routes/carritoRoute.js";
 
 // inicializamos express
 const app = express();
