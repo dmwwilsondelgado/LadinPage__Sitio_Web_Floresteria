@@ -1,6 +1,15 @@
 import imagenesProductoModel from "../models/imagenesProductoModel.js";
 
 class ImagenesProductoController {
+  static async getALLimages(req, res) {
+    try {
+      const data = await imagenesProductoModel.getALLimages();
+      res.json(data);    
+    } 
+    catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 
   static async create(req, res) {
     try {

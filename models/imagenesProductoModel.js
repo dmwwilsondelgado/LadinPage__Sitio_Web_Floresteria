@@ -1,6 +1,14 @@
 import connection from "../utils/db.js";
 
 class ImagenesProductoModel {
+  async getALLimages() {
+    try {
+      const [result] = await connection.query(`select * from  imagenes_producto`);
+      return result;
+    } catch (error) {
+      throw new Error("Error al obtener las imágenes de productos: " + error.message);
+    }
+  }
 
   async create(id_producto, url_imagen) {
     try {

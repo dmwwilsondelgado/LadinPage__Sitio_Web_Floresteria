@@ -41,12 +41,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ruta raíz → frontend
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/html/index.html"));
-});
+//app.get("/", (req, res) => {
+  //res.sendFile(path.join(__dirname, "public/html/index.html"));
+//});
 
 // iniciar el servidor y abrir automáticamente el navegador
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
-  open(`http://localhost:${PORT}/html/index.html`);
+  //  open(`http://localhost:${PORT}/html/index.html`);
 });
