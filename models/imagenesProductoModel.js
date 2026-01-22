@@ -17,7 +17,7 @@ class ImagenesProductoModel {
   async getByProducto(id_producto) {
     try {
       const [rows] = await connection.query(
-      "SELECT * FROM imagenes_producto WHERE id_producto = ? AND estado = 1",
+      "SELECT * FROM imagenes_producto WHERE id_producto = ?",
       [id_producto]
       );
       return rows; 
@@ -29,7 +29,7 @@ class ImagenesProductoModel {
   async delete(id_imagen) {
     try {
       const [result] = await connection.query(
-      "UPDATE imagenes_producto SET estado = 0 WHERE id_imagen = ?",
+      "delete  from imagenes_producto where id_imagen = ?",
       [id_imagen]
       );
 
