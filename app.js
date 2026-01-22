@@ -11,6 +11,8 @@ import imagenesProductoRoute from "./routes/imagenesProductosRoute.js";1
 //creamos inicio 
 const app = express();
 app.use(bodyParser.json());
+//carpeta publica para correr doom en el navegador
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 //inicializamos el app
 app.use("/usuarios", usuariosRoutes);
