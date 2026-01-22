@@ -85,32 +85,37 @@ CREATE TABLE carrito_detalle (
 
 CREATE TABLE pedidos (
   id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-  id_usuario INT,
-  id_direccion INT,
+  id_usuario INT NOT NULL,
+  id_direccion INT NOT NULL,
   total DECIMAL(10,2) NOT NULL,
-  estado VARCHAR(30) DEFAULT 'pendiente',
+  estado ENUM('pendiente','pagado','enviado','cancelado') DEFAULT 'pendiente',
   fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
   FOREIGN KEY (id_direccion) REFERENCES direcciones(id_direccion)
 );
+
 CREATE TABLE pedido_detalle (
   id_detalle INT AUTO_INCREMENT PRIMARY KEY,
-  id_pedido INT,
-  id_producto INT,
+  id_pedido INT NOT NULL,
+  id_producto INT NOT NULL,
   cantidad INT NOT NULL,
   precio_unitario DECIMAL(10,2) NOT NULL,
+  subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_unitario) STORED,
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
   FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
 );
+
 CREATE TABLE pagos (
   id_pago INT AUTO_INCREMENT PRIMARY KEY,
-  id_pedido INT,
-  metodo_pago VARCHAR(50),
-  estado_pago VARCHAR(30),
+  id_pedido INT NOT NULL,
+  metodo_pago ENUM('efectivo','transferencia') NOT NULL,
+  estado_pago ENUM('pendiente','aprobado','rechazado') DEFAULT 'pendiente',
   fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
 );
-insert into roles(id_rol,nombre_rol)values(1,"admin"),(2,"cliente");
+
+insert into roles(id_rol,nombre_rol)values (1,"admin"),(2,"cliente");
 -- insertamos producto conforma alas tablas 
 INSERT INTO productos 
 (nombre, descripcion, precio, stock, estado, id_categoria, id_tipo_producto) 
@@ -119,4 +124,3 @@ VALUES
 SELECT * FROM tipo_producto;
 SELECT * FROM categorias;
 SELECT * FROM productos;
-describe productos;
