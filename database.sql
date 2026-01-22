@@ -61,22 +61,28 @@ CREATE TABLE direcciones (
   referencia VARCHAR(200),
   FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
+-- 🔹 Tabla carrito
 CREATE TABLE carrito (
   id_carrito INT AUTO_INCREMENT PRIMARY KEY,
-  id_usuario INT,
-  estado VARCHAR(20) DEFAULT 'activo',
+  id_usuario INT NOT NULL,
+  estado ENUM('activo','cerrado','pendiente','pagado','cancelado') DEFAULT 'activo',
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
+
+-- 🔹 Tabla carrito_detalle
 CREATE TABLE carrito_detalle (
   id_detalle INT AUTO_INCREMENT PRIMARY KEY,
-  id_carrito INT,
-  id_producto INT,
+  id_carrito INT NOT NULL,
+  id_producto INT NOT NULL,
   cantidad INT NOT NULL,
   precio_unitario DECIMAL(10,2) NOT NULL,
+  subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_unitario) STORED,
   FOREIGN KEY (id_carrito) REFERENCES carrito(id_carrito),
   FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
 );
+
 CREATE TABLE pedidos (
   id_pedido INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario INT,
