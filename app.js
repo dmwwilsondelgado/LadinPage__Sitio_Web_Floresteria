@@ -35,6 +35,7 @@ app.use("/categorias", categoriasRoutes);
 app.use("/tiposdeproducto", tipoProductoRoute);
 app.use("/productos", productoRoute);
 app.use("/imagenesproducto", imagenesProductoRoute);
+app.use("/api/carrito", carritoRoutes);
 
 // para poder usar __dirname en modulos ES6
 const __filename = fileURLToPath(import.meta.url);
