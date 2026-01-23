@@ -1,6 +1,16 @@
 import connection from "../utils/db.js";
 
 class ProductosModel {
+  async getById(id){
+    try {
+      const [result] = await connection.query("select * from productos where id_producto = ?",
+        [id]
+      );
+      return result[0];
+    } catch (error) {
+      throw new Error(error.message + " producto no encontrado");
+    }
+  }
 
   async getAll() {
     const [rows] = await connection.query(`

@@ -1,6 +1,6 @@
 import carritoModel from "../models/carritoModel.js";
 import carritoDetalleModel from "../models/carritoDetalleModel.js";
-import productoModel from "../models/productosModel.js";
+import productosModel from "../models/productosModel.js";
 
 class CarritoController {
   // ➕ Agregar producto al carrito
@@ -21,7 +21,7 @@ class CarritoController {
             }
 
             // 2️⃣ Obtener producto
-            const producto = await productoModel.getById(id_producto);
+            const producto = await productosModel.getById(id_producto);
             if (!producto) {
                 return res.status(404).json({ error: "Producto no encontrado" });
             }
