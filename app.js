@@ -12,7 +12,7 @@ import tipoProductoRoute from "./routes/tipoProductoRoute.js";
 import productoRoute from "./routes/productoRoute.js";
 import imagenesProductoRoute from "./routes/imagenesProductosRoute.js";
 import carritoRoutes from "./routes/carritoRoute.js";
-
+import direccionesRoute from "./routes/direccionesRoute.js";
 // inicializamos express
 const app = express();
 const PORT = process.env.PORT || 3000; // definimos el puerto
@@ -37,6 +37,7 @@ app.use("/tiposdeproducto", tipoProductoRoute);
 app.use("/productos", productoRoute);
 app.use("/imagenesproducto", imagenesProductoRoute);
 app.use("/api/carrito", carritoRoutes);
+app.use("/direcciones", direccionesRoute);
 
 // para poder usar __dirname en modulos ES6
 const __filename = fileURLToPath(import.meta.url);
